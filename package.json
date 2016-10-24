@@ -24,5 +24,8 @@
   "homepage": "https://github.com/pattern-lab/plugin-node-tab#readme",
   "devDependencies": {
     "eslint": "^3.5.0"
-  }
+  },
+  "fileTypes": [
+    "json"
+  ]
 }

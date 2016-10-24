@@ -12,3 +12,6 @@ Panels.add({
   'language': 'markup',
   'keyCombo': 'ctrl+shift+z'
 });
+
+console.log(Panels.get());
+console.log(Panels.count());

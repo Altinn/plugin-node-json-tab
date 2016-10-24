@@ -1,6 +1,6 @@
 'use strict';
 
-const pluginName = 'plugin-node-tab';
+const pluginName = 'plugin-node-flippi';
 
 const fs = require('fs-extra'),
   glob = require('glob'),
@@ -20,6 +20,7 @@ function onPatternIterate(patternlab, pattern) {
 function registerEvents(patternlab) {
   //register our handler at the appropriate time of execution
   patternlab.events.on('patternlab-pattern-write-end', onPatternIterate);
+  patternlab.events.on('setupPanels', function() { console.log('test') });
 }
 
 /**
@@ -33,7 +34,7 @@ function getPluginFrontendConfig() {
     'templates':[],
     'stylesheets':[],
     'javascripts':['patternlab-components\/pattern-lab\/' + pluginName + '\/js\/' + pluginName + '.js'],
-    'onready':'PluginTab.init()',
+    'onready':'PluginFlippi.init()',
     'callback':''
   }
 }
@@ -57,7 +58,7 @@ function pluginInit(patternlab) {
   try {
     fs.outputFileSync(pluginConfigPathName + '/' + pluginName + '.json', JSON.stringify(pluginConfig, null, 2));
   } catch (ex) {
-    console.trace('plugin-node-tab: Error occurred while writing pluginFile configuration');
+    console.trace('plugin-node-flippi: Error occurred while writing pluginFile configuration');
     console.log(ex);
   }
 
@@ -81,13 +82,6 @@ function pluginInit(patternlab) {
           var relativePath = path.relative(__dirname, pluginFiles[i]).replace('dist', ''); //dist is dropped
           var writePath = path.join(patternlab.config.paths.public.root, 'patternlab-components', 'pattern-lab', pluginName, relativePath);
 
-          //a message to future plugin authors:
-          //depending on your plugin's job - you might need to alter the dist file instead of copying.
-          //if you are simply copying dist files, you can probably do the below:
-          //fs.copySync(pluginFiles[i], writePath);
-
-          //in this case, we need to alter the dist file to loop through our tabs to load as defined in the package.json
-          //we are also being a bit lazy here, since we only expect one file
           let tabJSFileContents = fs.readFileSync(pluginFiles[i], 'utf8');
           var snippetString = '';
           for (let j = 0; j < fileTypes.length; j++) {
@@ -98,7 +92,7 @@ function pluginInit(patternlab) {
           fs.outputFileSync(writePath, tabJSFileContents);
         }
       } catch (ex) {
-        console.trace('plugin-node-tab: Error occurred while copying pluginFile', pluginFiles[i]);
+        console.trace('plugin-node-flippi: Error occurred while copying pluginFile', pluginFiles[i]);
         console.log(ex);
       }
     }
