@@ -1,5 +1,5 @@
 {
-  "name": "plugin-node-tab",
+  "name": "plugin-node-flippi",
   "version": "1.0.0-alpha",
   "description": "",
   "main": "index.js",
@@ -10,18 +10,18 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/pattern-lab/plugin-node-tab.git"
+    "url": "git+https://github.com/DavidEmanuelsen/plugin-node-flippi.git"
   },
   "scripts": {
     "test": "eslint dist/** src/** index.js postinstall.js",
     "postinstall": "node ./postinstall.js"
   },
-  "author": "Brian Muenzenmeyer",
+  "author": "David Emanuelsen",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/pattern-lab/plugin-node-tab/issues"
+    "url": "https://github.com/DavidEmanuelsen/plugin-node-flippi/issues"
   },
-  "homepage": "https://github.com/pattern-lab/plugin-node-tab#readme",
+  "homepage": "https://github.com/DavidEmanuelsen/plugin-node-flippi#readme",
   "devDependencies": {
     "eslint": "^3.5.0"
   },
