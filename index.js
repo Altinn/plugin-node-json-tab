@@ -1,6 +1,6 @@
 'use strict';
 
-const pluginName = 'plugin-node-flippi';
+const pluginName = 'plugin-node-json-tab';
 
 const fs = require('fs-extra'),
   glob = require('glob'),
@@ -34,7 +34,7 @@ function getPluginFrontendConfig() {
     'templates':[],
     'stylesheets':[],
     'javascripts':['patternlab-components\/pattern-lab\/' + pluginName + '\/js\/' + pluginName + '.js'],
-    'onready':'PluginFlippi.init()',
+    'onready':'PluginJsonTab.init()',
     'callback':''
   }
 }
@@ -58,7 +58,7 @@ function pluginInit(patternlab) {
   try {
     fs.outputFileSync(pluginConfigPathName + '/' + pluginName + '.json', JSON.stringify(pluginConfig, null, 2));
   } catch (ex) {
-    console.trace('plugin-node-flippi: Error occurred while writing pluginFile configuration');
+    console.trace('plugin-node-json-tab: Error occurred while writing pluginFile configuration');
     console.log(ex);
   }
 
@@ -92,7 +92,7 @@ function pluginInit(patternlab) {
           fs.outputFileSync(writePath, tabJSFileContents);
         }
       } catch (ex) {
-        console.trace('plugin-node-flippi: Error occurred while copying pluginFile', pluginFiles[i]);
+        console.trace('plugin-node-json-tab: Error occurred while copying pluginFile', pluginFiles[i]);
         console.log(ex);
       }
     }

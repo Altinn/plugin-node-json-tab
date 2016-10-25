@@ -1,5 +1,5 @@
 {
-  "name": "plugin-node-flippi",
+  "name": "plugin-node-json-tab",
   "version": "1.0.0-alpha",
   "description": "",
   "main": "index.js",
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/DavidEmanuelsen/plugin-node-flippi.git"
+    "url": "git+https://github.com/Altinn/plugin-node-json-tab.git"
   },
   "scripts": {
     "test": "eslint dist/** src/** index.js postinstall.js",
@@ -19,9 +19,9 @@
   "author": "David Emanuelsen",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/DavidEmanuelsen/plugin-node-flippi/issues"
+    "url": "https://github.com/Altinn/plugin-node-json-tab/issues"
   },
-  "homepage": "https://github.com/DavidEmanuelsen/plugin-node-flippi#readme",
+  "homepage": "https://github.com/Altinn/plugin-node-json-tab#readme",
   "devDependencies": {
     "eslint": "^3.5.0"
   },

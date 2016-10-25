@@ -14,12 +14,12 @@ function findTab(patternlab, pattern) {
 
   //exit if either of these two parameters are missing
   if (!patternlab) {
-    console.error('plugin-node-flippi: patternlab object not provided to findTab');
+    console.error('plugin-node-json-tab: patternlab object not provided to findTab');
     process.exit(1);
   }
 
   if (!pattern) {
-    console.error('plugin-node-flippi: pattern object not provided to findTab');
+    console.error('plugin-node-json-tab: pattern object not provided to findTab');
     process.exit(1);
   }
 
@@ -37,7 +37,7 @@ function findTab(patternlab, pattern) {
         fs.outputFileSync(customFileTypeOutputPath, JSON.stringify(pattern.jsonFileData, null, '\t'));
     }
     catch (err) {
-      console.log('plugin-node-flippi:There was an error parsing sibling JSON for ' + pattern.relPath);
+      console.log('plugin-node-json-tab:There was an error parsing sibling JSON for ' + pattern.relPath);
       console.log(err);
     }
   }
