@@ -31,15 +31,29 @@ function findTab(patternlab, pattern) {
 
     customFileTypePath = customFileTypePath.substr(0, customFileTypePath.lastIndexOf(".")) + '.' + fileTypes[i];
     var customFileTypeOutputPath = patternlab.config.paths.public.patterns + pattern.getPatternLink(patternlab, 'custom', '.' + fileTypes[i]);
+    var patternJsonFileData = pattern.jsonFileData;
+    var link = patternJsonFileData.link;
+    var patternLabHead = patternJsonFileData.patternLabHead;
+    var cacheBuster = patternJsonFileData.cacheBuster;
+    var patternLabFoot = patternJsonFileData.patternLabFoot;
+    delete patternJsonFileData.link;
+    delete patternJsonFileData.patternLabHead;
+    delete patternJsonFileData.cacheBuster;
+    delete patternJsonFileData.patternLabFoot;
 
     //look for a custom filetype for this template
     try {
-        fs.outputFileSync(customFileTypeOutputPath, JSON.stringify(pattern.jsonFileData, null, '\t'));
+        fs.outputFileSync(customFileTypeOutputPath, JSON.stringify(patternJsonFileData, null, '\t'));
     }
     catch (err) {
       console.log('plugin-node-json-tab:There was an error parsing sibling JSON for ' + pattern.relPath);
       console.log(err);
     }
+
+    pattern.jsonFileData.link = link;
+    pattern.jsonFileData.patternLabHead = patternLabHead;
+    pattern.jsonFileData.cacheBuster = cacheBuster;
+    pattern.jsonFileData.patternLabFoot = patternLabFoot;
   }
 }
 
