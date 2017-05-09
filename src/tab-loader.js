@@ -1,6 +1,4 @@
-"use strict";
-
-const fs = require('fs-extra'),
+var fs = require('fs-extra'),
   path = require('path'),
   fileTypes = require('./../package.json').fileTypes;
 

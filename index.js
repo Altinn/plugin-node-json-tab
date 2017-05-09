@@ -1,5 +1,3 @@
-'use strict';
-
 var pluginName = 'plugin-node-json-tab';
 
 var fs = require('fs-extra'),
