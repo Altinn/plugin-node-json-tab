@@ -1,8 +1,8 @@
 'use strict';
 
-const pluginName = 'plugin-node-json-tab';
+var pluginName = 'plugin-node-json-tab';
 
-const fs = require('fs-extra'),
+var fs = require('fs-extra'),
   glob = require('glob'),
   path = require('path'),
   EOL = require('os').EOL,
@@ -97,7 +97,7 @@ function pluginInit(patternlab) {
       }
     }
   }
-  
+
   //setup listeners if not already active. we also enable and set the plugin as initialized
   if (!patternlab.config.plugins) {
     patternlab.config.plugins = {};
