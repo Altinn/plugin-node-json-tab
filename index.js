@@ -48,7 +48,7 @@ function pluginInit(patternlab) {
     process.exit(1);
   }
 
-  let fileTypes = require('./package.json').fileTypes;
+  var fileTypes = require('./package.json').fileTypes;
 
   //write the plugin json to public/patternlab-components
   var pluginConfig = getPluginFrontendConfig();
@@ -71,19 +71,19 @@ function pluginInit(patternlab) {
 
   if (pluginFiles && pluginFiles.length > 0) {
 
-    let tab_frontend_snippet = fs.readFileSync(path.resolve(__dirname + '/src/snippet.js'), 'utf8');
+    var tab_frontend_snippet = fs.readFileSync(path.resolve(__dirname + '/src/snippet.js'), 'utf8');
 
-    for (let i = 0; i < pluginFiles.length; i++) {
+    for (var i = 0; i < pluginFiles.length; i++) {
       try {
         var fileStat = fs.statSync(pluginFiles[i]);
         if (fileStat.isFile()) {
           var relativePath = path.relative(__dirname, pluginFiles[i]).replace('dist', ''); //dist is dropped
           var writePath = path.join(patternlab.config.paths.public.root, 'patternlab-components', 'pattern-lab', pluginName, relativePath);
 
-          let tabJSFileContents = fs.readFileSync(pluginFiles[i], 'utf8');
+          var tabJSFileContents = fs.readFileSync(pluginFiles[i], 'utf8');
           var snippetString = '';
-          for (let j = 0; j < fileTypes.length; j++) {
-            let tabSnippetLocal = tab_frontend_snippet.replace(/<<type>>/g, fileTypes[j]).replace(/<<typeUC>>/g, fileTypes[j].toUpperCase());
+          for (var j = 0; j < fileTypes.length; j++) {
+            var tabSnippetLocal = tab_frontend_snippet.replace(/<<type>>/g, fileTypes[j]).replace(/<<typeUC>>/g, fileTypes[j].toUpperCase());
             snippetString += tabSnippetLocal + EOL;
           }
           tabJSFileContents = tabJSFileContents.replace('/*SNIPPETS*/', snippetString);

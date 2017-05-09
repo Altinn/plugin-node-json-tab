@@ -25,7 +25,7 @@ function findTab(patternlab, pattern) {
   var customFileTypePath = path.join(patternlab.config.paths.source.patterns, pattern.relPath);
 
   //loop through all configured types
-  for (let i = 0; i < fileTypes.length; i++) {
+  for (var i = 0; i < fileTypes.length; i++) {
 
     customFileTypePath = customFileTypePath.substr(0, customFileTypePath.lastIndexOf(".")) + '.' + fileTypes[i];
     var customFileTypeOutputPath = patternlab.config.paths.public.patterns + pattern.getPatternLink(patternlab, 'custom', '.' + fileTypes[i]);
